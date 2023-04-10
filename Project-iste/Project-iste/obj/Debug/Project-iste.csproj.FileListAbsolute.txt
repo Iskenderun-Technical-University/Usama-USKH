@@ -15,3 +15,4 @@ C:\Users\osama\source\repos\my_github\Usama-USKH\Project-iste\Project-iste\bin\D
 C:\Users\osama\source\repos\my_github\Usama-USKH\Project-iste\Project-iste\bin\Debug\Database1_log.ldf
 C:\Users\osama\source\repos\my_github\Usama-USKH\Project-iste\Project-iste\obj\Debug\Project-iste.csproj.SuggestedBindingRedirects.cache
 C:\Users\osama\source\repos\my_github\Usama-USKH\Project-iste\Project-iste\obj\Debug\Project_iste.NotePanel.resources
+C:\Users\osama\source\repos\my_github\Usama-USKH\Project-iste\Project-iste\obj\Debug\Project_iste.Write_Note.resources

@@ -15,6 +15,7 @@ namespace Project_iste
     {
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\osama\source\repos\my_github\Usama-USKH\Project-iste\Project-iste\Database1.mdf;Integrated Security=True");
         SqlCommand com;
+        public static string userid;
         public Form1()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace Project_iste
         {
             string user = guna2TextBox1.Text;
             string password = guna2TextBox2.Text;
+            userid = guna2TextBox1.Text;
             com = new SqlCommand();
             con.Open();
             com.Connection = con;
@@ -40,6 +42,7 @@ namespace Project_iste
                 this.Hide();
                 Account account = new Account();
                 account.Show();
+                account.label2.Text = userid;
             }
             else
             {
@@ -66,8 +69,10 @@ namespace Project_iste
                 con.Close();
                 guna2TextBox1.Clear(); guna2TextBox2.Clear(); guna2TextBox1.Focus();
                 MessageBox.Show("user saved");
+
             }
         }
+
       
     }
 }
