@@ -21,5 +21,12 @@ namespace Project_iste
         {
             Application.Exit();
         }
+
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+            NotePanel note = new NotePanel();
+            note.label1.Text = "Title Note";
+            note.Parent = flowLayoutPanel1;
+        }
     }
 }

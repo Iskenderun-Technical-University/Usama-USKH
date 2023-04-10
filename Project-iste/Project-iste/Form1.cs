@@ -13,7 +13,7 @@ namespace Project_iste
 {
     public partial class Form1 : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\osama\source\repos\my_github\donem-c#\proje\bahar-proje\bahar-proje\Database1.mdf;Integrated Security=True");
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\osama\source\repos\my_github\Usama-USKH\Project-iste\Project-iste\Database1.mdf;Integrated Security=True");
         SqlCommand com;
         public Form1()
         {
@@ -68,5 +68,6 @@ namespace Project_iste
                 MessageBox.Show("user saved");
             }
         }
+      
     }
 }
