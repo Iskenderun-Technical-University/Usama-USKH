@@ -28,5 +28,14 @@ namespace Project_iste
             note.label1.Text = "Title Note";
             note.Parent = flowLayoutPanel1;
         }
+
+        private void Account_Load(object sender, EventArgs e)
+        {
+            for(int i= 0; i < 5; i++)
+            {
+                guna2GradientButton1.PerformClick();
+
+            }
+        }
     }
 }

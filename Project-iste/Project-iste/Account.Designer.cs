@@ -154,6 +154,7 @@
             this.Name = "Account";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Account";
+            this.Load += new System.EventHandler(this.Account_Load);
             this.guna2GradientPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
