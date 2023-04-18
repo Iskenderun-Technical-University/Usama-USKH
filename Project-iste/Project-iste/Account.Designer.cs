@@ -38,6 +38,7 @@
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2DragControl1 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,7 @@
             this.guna2ControlBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.guna2ControlBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(139)))), ((int)(((byte)(152)))), ((int)(((byte)(166)))));
             this.guna2ControlBox1.IconColor = System.Drawing.Color.White;
-            this.guna2ControlBox1.Location = new System.Drawing.Point(13, 438);
+            this.guna2ControlBox1.Location = new System.Drawing.Point(12, 553);
             this.guna2ControlBox1.Name = "guna2ControlBox1";
             this.guna2ControlBox1.Size = new System.Drawing.Size(45, 29);
             this.guna2ControlBox1.TabIndex = 0;
@@ -62,14 +63,14 @@
             this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2GradientButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(31)))), ((int)(((byte)(128)))));
             this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(37)))), ((int)(((byte)(119)))));
-            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
             this.guna2GradientButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2GradientButton1.Image")));
             this.guna2GradientButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.guna2GradientButton1.ImageSize = new System.Drawing.Size(27, 27);
-            this.guna2GradientButton1.Location = new System.Drawing.Point(13, 202);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(12, 188);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.Size = new System.Drawing.Size(195, 45);
+            this.guna2GradientButton1.Size = new System.Drawing.Size(225, 58);
             this.guna2GradientButton1.TabIndex = 1;
             this.guna2GradientButton1.Text = "create a new note";
             this.guna2GradientButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -87,9 +88,9 @@
             this.guna2GradientButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(37)))), ((int)(((byte)(119)))));
             this.guna2GradientButton2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2GradientButton2.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton2.Location = new System.Drawing.Point(13, 275);
+            this.guna2GradientButton2.Location = new System.Drawing.Point(13, 297);
             this.guna2GradientButton2.Name = "guna2GradientButton2";
-            this.guna2GradientButton2.Size = new System.Drawing.Size(195, 45);
+            this.guna2GradientButton2.Size = new System.Drawing.Size(225, 57);
             this.guna2GradientButton2.TabIndex = 1;
             // 
             // label1
@@ -117,9 +118,9 @@
             this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(31)))), ((int)(((byte)(128)))));
             this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(37)))), ((int)(((byte)(119)))));
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(262, 0);
+            this.guna2GradientPanel1.Location = new System.Drawing.Point(343, 0);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(560, 490);
+            this.guna2GradientPanel1.Size = new System.Drawing.Size(659, 594);
             this.guna2GradientPanel1.TabIndex = 4;
             // 
             // flowLayoutPanel1
@@ -127,10 +128,10 @@
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 0);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(20, 20, 0, 0);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(557, 490);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(659, 594);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // guna2Elipse1
@@ -138,12 +139,18 @@
             this.guna2Elipse1.BorderRadius = 15;
             this.guna2Elipse1.TargetControl = this;
             // 
+            // guna2DragControl1
+            // 
+            this.guna2DragControl1.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl1.TargetControl = this;
+            this.guna2DragControl1.UseTransparentDrag = true;
+            // 
             // Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FloralWhite;
-            this.ClientSize = new System.Drawing.Size(822, 490);
+            this.ClientSize = new System.Drawing.Size(1002, 594);
             this.Controls.Add(this.guna2ControlBox1);
             this.Controls.Add(this.guna2GradientButton2);
             this.Controls.Add(this.guna2GradientPanel1);
@@ -171,5 +178,6 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         public System.Windows.Forms.Label label2;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl1;
     }
 }

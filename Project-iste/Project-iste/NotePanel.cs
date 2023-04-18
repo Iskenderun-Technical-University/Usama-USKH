@@ -17,6 +17,10 @@ namespace Project_iste
             InitializeComponent();
         }
 
-      
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Write_Note note = new Write_Note();
+            note.ShowDialog();
+        }
     }
 }
