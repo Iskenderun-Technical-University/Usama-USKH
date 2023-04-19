@@ -12,6 +12,8 @@ namespace Project_iste
 {
     public partial class NotePanel : UserControl
     {
+        string text;
+        
         public NotePanel()
         {
             InitializeComponent();
@@ -19,8 +21,13 @@ namespace Project_iste
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            Write_Note note = new Write_Note();
-            note.ShowDialog();
+            Write_Note note2 = new Write_Note();
+            text = label1.Text;
+            note2.guna2TextBox1.Text = text;
+            
+            note2.ShowDialog();
         }
+
+      
     }
 }

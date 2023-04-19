@@ -39,8 +39,8 @@ namespace Project_iste
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            string user = guna2TextBox1.Text;
-            string password = guna2TextBox2.Text;
+            
+           
             userid = guna2TextBox1.Text;
             com = new SqlCommand();
             if (check(guna2TextBox1.Text) == true || check(guna2TextBox2.Text) == true)
@@ -60,7 +60,7 @@ namespace Project_iste
                     this.Hide();
                     Account account = new Account();
                     account.Show();
-                    account.label2.Text = userid;
+                    account.guna2TextBox1.Text = userid;
                 }
                 else
                 {
@@ -156,6 +156,6 @@ namespace Project_iste
             }
         }
 
-      
+     
     }
 }

@@ -15,7 +15,7 @@ namespace Project_iste
     {
         Write_Note Write = new Write_Note();
         Form1 form1 = new Form1();
-        NotePanel note1 = new NotePanel();
+        
         DataTable dt = new DataTable();
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\osama\source\repos\my_github\Usama-USKH\Project-iste\Project-iste\Database1.mdf;Integrated Security=True");
 
@@ -31,27 +31,40 @@ namespace Project_iste
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            
-            //note1.label1.Text = "Title Note";
-           // note1.Parent = flowLayoutPanel1;
+            NotePanel note1 = new NotePanel();
+          //  note1.label1.Text = "Title Note";
+            note1.Parent = flowLayoutPanel1;
         }
+
+ 
 
         private void Account_Load(object sender, EventArgs e)
         {
-            
+           // guna2TextBox1.Text = form1.guna2TextBox1.Text;
+           
+        }
+
+        private void guna2GradientButton2_Click(object sender, EventArgs e)
+        {
+            guna2GradientButton2.Enabled= false;
+            Write_Note write = new Write_Note();
             con.Open();
-            string query = "select * from NoteWrite";
+            string query = "select * from NoteWrite Where UserName = '" + guna2TextBox1.Text + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataAdapter adb = new SqlDataAdapter(cmd);
             adb.Fill(dt);
             con.Close();
 
-            for(int i = 0; i < dt.Rows.Count; i++)
+
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
+                NotePanel note1 = new NotePanel();
                 note1.label1.Text = dt.Rows[i][2].ToString();
-                Write.richTextBox1.Text = dt.Rows[i][3].ToString();
+                note1.richTextBox1.Text = dt.Rows[i][3].ToString();
                 note1.Parent = flowLayoutPanel1;
             }
         }
+
+       
     }
 }
