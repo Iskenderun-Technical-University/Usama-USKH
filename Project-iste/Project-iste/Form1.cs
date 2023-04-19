@@ -60,7 +60,7 @@ namespace Project_iste
                     this.Hide();
                     Account account = new Account();
                     account.Show();
-                    account.guna2TextBox1.Text = userid;
+                    account.label2.Text = userid;
                 }
                 else
                 {

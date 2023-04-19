@@ -49,7 +49,7 @@ namespace Project_iste
             guna2GradientButton2.Enabled= false;
             Write_Note write = new Write_Note();
             con.Open();
-            string query = "select * from NoteWrite Where UserName = '" + guna2TextBox1.Text + "'";
+            string query = "select * from NoteWrite Where UserName = '" + label2.Text + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataAdapter adb = new SqlDataAdapter(cmd);
             adb.Fill(dt);
@@ -65,6 +65,11 @@ namespace Project_iste
             }
         }
 
-       
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            Write_Note note2 = new Write_Note();
+            note2.label1.Text = label2.Text;
+            note2.ShowDialog();
+        }
     }
 }
