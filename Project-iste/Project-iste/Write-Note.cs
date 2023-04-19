@@ -21,6 +21,12 @@ namespace Project_iste
             InitializeComponent();
         }
 
+        public static bool check(string str)
+        {
+            return (String.IsNullOrEmpty(str) ||
+                str.Trim().Length == 0) ? true : false;
+        }
+
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -50,12 +56,33 @@ namespace Project_iste
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             con.Open();
-            string query = "select Subject from NoteWrite Where Title = '" + comboBox1.Text + "'";
+            string query = "select * from NoteWrite Where Title = '" + comboBox1.Text + "'";
             SqlCommand cmd2 = new SqlCommand(query, con);
             SqlDataAdapter adb2 = new SqlDataAdapter(cmd2);
             adb2.Fill(dt2);
             con.Close();
-            richTextBox1.Text = dt2.Rows[0][0].ToString();
+            richTextBox1.Text = dt2.Rows[0][3].ToString();
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            if(check(guna2TextBox1.Text) == true || check(richTextBox1.Text) == true)
+            {
+                MessageBox.Show("please enter the required data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                con.Open();
+                string query = "insert into NoteWrite (UserName,Title,Subject) VALUES (@UserName,@Title,@Subject)";
+                SqlCommand cmd3 = new SqlCommand(query, con);
+                cmd3.Parameters.AddWithValue("@UserName", label1.Text);
+                cmd3.Parameters.AddWithValue("@Title", guna2TextBox1.Text);
+                cmd3.Parameters.AddWithValue("@Subject", richTextBox1.Text);
+                cmd3.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Your Note Saved in your sql table");
+                guna2TextBox1.Clear(); richTextBox1.Clear();
+            }
         }
     }
 }
