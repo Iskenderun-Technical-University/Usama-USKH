@@ -40,7 +40,7 @@ namespace Project_iste
         private void guna2Button1_Click(object sender, EventArgs e)
         {
             
-           
+            
             userid = guna2TextBox1.Text;
             com = new SqlCommand();
             if (check(guna2TextBox1.Text) == true || check(guna2TextBox2.Text) == true)
@@ -60,7 +60,7 @@ namespace Project_iste
                     this.Hide();
                     Account account = new Account();
                     account.Show();
-                    account.label2.Text = userid;
+                    account.label2.Text = guna2TextBox1.Text;
                 }
                 else
                 {
@@ -86,7 +86,7 @@ namespace Project_iste
         public static int passworslower(string password)
         {
             int value = password.Length - Regex.Replace(password, "[a-z]", "").Length;
-            return value;
+            return value;  
         }
 
         public static int passworsnumber(string password)
@@ -156,6 +156,6 @@ namespace Project_iste
             }
         }
 
-      
+    
     }
 }

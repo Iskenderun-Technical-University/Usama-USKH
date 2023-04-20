@@ -29,6 +29,7 @@ namespace Project_iste
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
+           
             this.Close();
         }
 
@@ -56,17 +57,21 @@ namespace Project_iste
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             con.Open();
-            string query = "select * from NoteWrite Where Title = '" + comboBox1.Text + "'";
+            string query = "select * from NoteWrite Where Title = '" + comboBox1.Text.ToString() + "'";
             SqlCommand cmd2 = new SqlCommand(query, con);
             SqlDataAdapter adb2 = new SqlDataAdapter(cmd2);
             adb2.Fill(dt2);
             con.Close();
-            richTextBox1.Text = dt2.Rows[0][3].ToString();
+            if (dt2.Rows.Count > 0)
+                richTextBox1.Text = dt2.Rows[0][3].ToString();
+            else
+                MessageBox.Show("error");
+            dt2.Clear();
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            if(check(guna2TextBox1.Text) == true || check(richTextBox1.Text) == true)
+            if(check(guna2TextBox1.Text) == true || check(richTextBox1.Text) == true )
             {
                 MessageBox.Show("please enter the required data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
