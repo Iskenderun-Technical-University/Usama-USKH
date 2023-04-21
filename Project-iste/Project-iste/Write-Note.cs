@@ -35,7 +35,7 @@ namespace Project_iste
 
         private void Write_Note_Load(object sender, EventArgs e)
         {
-
+           
            con.Open();
            string query = "select Title from NoteWrite Where UserName = '" + label1.Text +"'";
            SqlCommand cmd = new SqlCommand(query,con);
@@ -49,10 +49,6 @@ namespace Project_iste
             }
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
