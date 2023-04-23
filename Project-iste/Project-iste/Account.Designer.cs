@@ -70,7 +70,7 @@
             this.guna2GradientButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2GradientButton1.Image")));
             this.guna2GradientButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.guna2GradientButton1.ImageSize = new System.Drawing.Size(27, 27);
-            this.guna2GradientButton1.Location = new System.Drawing.Point(21, 353);
+            this.guna2GradientButton1.Location = new System.Drawing.Point(22, 353);
             this.guna2GradientButton1.Name = "guna2GradientButton1";
             this.guna2GradientButton1.Size = new System.Drawing.Size(225, 58);
             this.guna2GradientButton1.TabIndex = 1;

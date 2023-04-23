@@ -32,7 +32,7 @@ namespace Project_iste
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
             NotePanel note1 = new NotePanel();
-          //  note1.label1.Text = "Title Note";
+            note1.label1.Text = "Title Note";
             note1.Parent = flowLayoutPanel1;
         }
 
@@ -42,7 +42,6 @@ namespace Project_iste
         {
             label2.Text = Form1.userid;
             guna2GradientButton2.Enabled = false;
-            guna2GradientButton1.Enabled = false;
             Write_Note write = new Write_Note();
             con.Open();
             string query = "select * from NoteWrite Where UserName = '" + label2.Text + "'";
@@ -69,9 +68,9 @@ namespace Project_iste
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            Write_Note note2 = new Write_Note();
+           /* Write_Note note2 = new Write_Note();
             note2.label1.Text = label2.Text;
-            note2.ShowDialog();
+            note2.ShowDialog();*/
         }
     }
 }

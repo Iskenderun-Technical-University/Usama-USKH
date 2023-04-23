@@ -35,26 +35,10 @@ namespace Project_iste
 
         private void Write_Note_Load(object sender, EventArgs e)
         {
-           
-           con.Open();
-           string query = "select Title from NoteWrite Where UserName = '" + label1.Text +"'";
-           SqlCommand cmd = new SqlCommand(query,con);
-           SqlDataAdapter adb = new SqlDataAdapter(cmd);
-           adb.Fill(dt);
-           con.Close();
-
-           foreach(DataRow dr in dt.Rows)
-            {
-                comboBox1.Items.Add(dr["Title"].ToString());
-            }
-        }
-
-
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
-        {
+            label1.Text = Form1.userid;
             con.Open();
-            string query = "select * from NoteWrite Where Title = '" + comboBox1.Text.ToString() + "'";
-            SqlCommand cmd2 = new SqlCommand(query, con);
+            string query2 = "select * from NoteWrite Where Title = '" + label5.Text.ToString() + "'";
+            SqlCommand cmd2 = new SqlCommand(query2, con);
             SqlDataAdapter adb2 = new SqlDataAdapter(cmd2);
             adb2.Fill(dt2);
             con.Close();
@@ -63,16 +47,34 @@ namespace Project_iste
             else
                 MessageBox.Show("error");
             dt2.Clear();
+
+             /* string query = "select Title from NoteWrite Where UserName = '" + label1.Text +"'";
+             SqlCommand cmd = new SqlCommand(query,con);
+             SqlDataAdapter adb = new SqlDataAdapter(cmd);
+             adb.Fill(dt);*/
+            /* foreach (DataRow dr in dt.Rows)
+             {
+                 comboBox1.Items.Add(dr["Title"].ToString());
+             }*/
+        }
+
+
+        private void guna2GradientButton1_Click(object sender, EventArgs e)
+        {
+          
+           
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
+          
             if(check(guna2TextBox1.Text) == true || check(richTextBox1.Text) == true )
             {
                 MessageBox.Show("please enter the required data", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
+                guna2TextBox1.Text = guna2TextBox1.Text.Replace('ğ', 'g');
                 con.Open();
                 string query = "insert into NoteWrite (UserName,Title,Subject) VALUES (@UserName,@Title,@Subject)";
                 SqlCommand cmd3 = new SqlCommand(query, con);
@@ -85,5 +87,6 @@ namespace Project_iste
                 guna2TextBox1.Clear(); richTextBox1.Clear();
             }
         }
+
     }
 }
