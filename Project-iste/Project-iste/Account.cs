@@ -31,9 +31,11 @@ namespace Project_iste
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            NotePanel note1 = new NotePanel();
+            /*NotePanel note1 = new NotePanel();
             note1.label1.Text = "Title Note";
-            note1.Parent = flowLayoutPanel1;
+            note1.Parent = flowLayoutPanel1;*/
+            Write_Note note = new Write_Note();
+            note.ShowDialog();
         }
 
  

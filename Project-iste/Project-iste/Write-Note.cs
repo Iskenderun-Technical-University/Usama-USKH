@@ -36,17 +36,30 @@ namespace Project_iste
         private void Write_Note_Load(object sender, EventArgs e)
         {
             label1.Text = Form1.userid;
-            con.Open();
-            string query2 = "select * from NoteWrite Where Title = '" + label5.Text.ToString() + "'";
-            SqlCommand cmd2 = new SqlCommand(query2, con);
-            SqlDataAdapter adb2 = new SqlDataAdapter(cmd2);
-            adb2.Fill(dt2);
-            con.Close();
-            if (dt2.Rows.Count > 0)
-                richTextBox1.Text = dt2.Rows[0][3].ToString();
+            if(label5.Text != "")
+            {
+                guna2Button1.Visible = false;
+                guna2Button2.Visible = true;
+            }
             else
-                MessageBox.Show("error");
-            dt2.Clear();
+            {
+                guna2Button1.Visible = true;
+                guna2Button2.Visible = false;
+            }
+            if (label5.Text != "")
+            {
+                con.Open();
+                string query2 = "select * from NoteWrite Where Title = '" + label5.Text.ToString() + "'";
+                SqlCommand cmd2 = new SqlCommand(query2, con);
+                SqlDataAdapter adb2 = new SqlDataAdapter(cmd2);
+                adb2.Fill(dt2);
+                con.Close();
+                if (dt2.Rows.Count > 0)
+                    richTextBox1.Text = dt2.Rows[0][3].ToString();
+                else
+                    MessageBox.Show("error");
+                dt2.Clear();
+            }
 
              /* string query = "select Title from NoteWrite Where UserName = '" + label1.Text +"'";
              SqlCommand cmd = new SqlCommand(query,con);
@@ -58,12 +71,6 @@ namespace Project_iste
              }*/
         }
 
-
-        private void guna2GradientButton1_Click(object sender, EventArgs e)
-        {
-          
-           
-        }
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
@@ -88,5 +95,15 @@ namespace Project_iste
             }
         }
 
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string query = "update NoteWrite set  Title = @Title , Subject=@Subject Where UserName = '" + label1.Text.ToString() + "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.Parameters.AddWithValue("@Title", guna2TextBox1.Text);
+            cmd.Parameters.AddWithValue("@Subject", richTextBox1.Text);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
     }
 }
