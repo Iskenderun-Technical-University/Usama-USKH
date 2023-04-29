@@ -7,6 +7,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 using System.Windows.Forms;
 
 namespace Project_iste
@@ -29,8 +30,9 @@ namespace Project_iste
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
-           
+
             this.Close();
+            
         }
 
         private void Write_Note_Load(object sender, EventArgs e)
@@ -60,7 +62,7 @@ namespace Project_iste
                     MessageBox.Show("error");
                 dt2.Clear();
             }
-
+             
              /* string query = "select Title from NoteWrite Where UserName = '" + label1.Text +"'";
              SqlCommand cmd = new SqlCommand(query,con);
              SqlDataAdapter adb = new SqlDataAdapter(cmd);
@@ -97,8 +99,12 @@ namespace Project_iste
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            if(guna2TextBox1.Text == "")
+            {
+                guna2TextBox1.Text = label5.Text;
+            }
             con.Open();
-            string query = "update NoteWrite set  Title = @Title , Subject=@Subject Where UserName = '" + label1.Text.ToString() + "'";
+            string query = "update NoteWrite set  Title = @Title , Subject=@Subject Where Title = '" + label5.Text.ToString() + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             cmd.Parameters.AddWithValue("@Title", guna2TextBox1.Text);
             cmd.Parameters.AddWithValue("@Subject", richTextBox1.Text);

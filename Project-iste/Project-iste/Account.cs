@@ -17,6 +17,7 @@ namespace Project_iste
         Form1 form1 = new Form1();
         
         DataTable dt = new DataTable();
+        DataTable dt2 = new DataTable();
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\osama\source\repos\my_github\Usama-USKH\Project-iste\Project-iste\Database1.mdf;Integrated Security=True");
 
         public Account()
@@ -24,16 +25,9 @@ namespace Project_iste
             InitializeComponent();
         }
 
-        private void guna2ControlBox1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
-            /*NotePanel note1 = new NotePanel();
-            note1.label1.Text = "Title Note";
-            note1.Parent = flowLayoutPanel1;*/
             Write_Note note = new Write_Note();
             note.ShowDialog();
         }
@@ -43,13 +37,20 @@ namespace Project_iste
         private void Account_Load(object sender, EventArgs e)
         {
             label2.Text = Form1.userid;
-            guna2GradientButton2.Enabled = false;
             Write_Note write = new Write_Note();
             con.Open();
             string query = "select * from NoteWrite Where UserName = '" + label2.Text + "'";
             SqlCommand cmd = new SqlCommand(query, con);
             SqlDataAdapter adb = new SqlDataAdapter(cmd);
             adb.Fill(dt);
+            string query2 = "select Title from NoteWrite Where UserName = '" + label2.Text.ToString() + "'";
+            SqlCommand cmd2 = new SqlCommand(query2, con);
+            SqlDataAdapter adb2 = new SqlDataAdapter(cmd2);
+            adb2.Fill(dt2);
+            foreach (DataRow dr in dt.Rows)
+            {
+                comboBox1.Items.Add(dr["Title"].ToString());
+            }
             con.Close();
 
 
@@ -60,12 +61,17 @@ namespace Project_iste
                 note1.richTextBox1.Text = dt.Rows[i][3].ToString();
                 note1.Parent = flowLayoutPanel1;
             }
+         
+
         }
 
         private void guna2GradientButton2_Click(object sender, EventArgs e)
         {
-            
-           
+
+            this.Close();
+            Account account = new Account();
+            account.Show();
+
         }
 
         private void guna2Button1_Click(object sender, EventArgs e)
@@ -73,6 +79,26 @@ namespace Project_iste
            /* Write_Note note2 = new Write_Note();
             note2.label1.Text = label2.Text;
             note2.ShowDialog();*/
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            con.Open();
+            string query = "Delete from NoteWrite Where Title = '" + comboBox1.Text.ToString()+ "'";
+            SqlCommand cmd = new SqlCommand(query, con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            MessageBox.Show("Deleted Successfully please Refresh The Form To See Your Update!!!");
+
+            this.Close();
+            Account account = new Account();
+            account.Show();
+
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

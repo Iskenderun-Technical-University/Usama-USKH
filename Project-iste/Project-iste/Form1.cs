@@ -112,50 +112,69 @@ namespace Project_iste
             }
             else
             {
-                if (passwordchar(guna2TextBox2.Text) < 8 || passwordchar(guna2TextBox2.Text)>=16)
+                DataTable dt = new DataTable();
+                con.Open();
+                string query = "select UserName From Login Where UserName = '" + guna2TextBox1.Text.ToString() + "'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataAdapter Adb = new SqlDataAdapter(cmd);
+                Adb.Fill(dt);
+                con.Close();
+                if (dt.Rows.Count > 0)
                 {
-                    MessageBox.Show("your password must be 8-16 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    guna2TextBox2.Clear(); guna2TextBox2.Focus();
-                }
-                else if (passworsupper(guna2TextBox2.Text) < 1)
-                {
-                    MessageBox.Show("your password must have at least one capital", "eror", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    guna2TextBox2.Clear(); guna2TextBox2.Focus();
-                }
-                else if (passworslower(guna2TextBox2.Text) < 1)
-                {
-                    MessageBox.Show("your password must have at least one lower case letter", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    guna2TextBox2.Clear(); guna2TextBox2.Focus();
-
-                }
-                else if (passworsnumber(guna2TextBox2.Text) < 1)
-                {
-                    MessageBox.Show("your password must have at least one number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    guna2TextBox2.Clear(); guna2TextBox2.Focus();
-
-                }
-                else if (passworsspecial(guna2TextBox2.Text) < 1)
-                {
-                    MessageBox.Show("your password must have at least one Special characters ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    guna2TextBox2.Clear(); guna2TextBox2.Focus();
-
+                    MessageBox.Show("UserName is Already Iaken", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    guna2TextBox1.Clear(); guna2TextBox2.Clear();
                 }
                 else
                 {
-                    con.Open();
-                    string query = "INSERT INTO Login (UserName , Password) VALUES(@UserName,@Password) ";
-                    SqlCommand cmd = new SqlCommand(query, con);
-                    cmd.Parameters.AddWithValue("@UserName", guna2TextBox1.Text);
-                    cmd.Parameters.AddWithValue("@Password", guna2TextBox2.Text);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    guna2TextBox1.Clear(); guna2TextBox2.Clear(); guna2TextBox1.Focus();
-                    MessageBox.Show("user saved");
+                    if (passwordchar(guna2TextBox2.Text) < 8 || passwordchar(guna2TextBox2.Text) >= 16)
+                    {
+                        MessageBox.Show("your password must be 8-16 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        guna2TextBox2.Clear(); guna2TextBox2.Focus();
+                    }
+                    else if (passworsupper(guna2TextBox2.Text) < 1)
+                    {
+                        MessageBox.Show("your password must have at least one capital", "eror", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        guna2TextBox2.Clear(); guna2TextBox2.Focus();
+                    }
+                    else if (passworslower(guna2TextBox2.Text) < 1)
+                    {
+                        MessageBox.Show("your password must have at least one lower case letter", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        guna2TextBox2.Clear(); guna2TextBox2.Focus();
+
+                    }
+                    else if (passworsnumber(guna2TextBox2.Text) < 1)
+                    {
+                        MessageBox.Show("your password must have at least one number", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        guna2TextBox2.Clear(); guna2TextBox2.Focus();
+
+                    }
+                    else if (passworsspecial(guna2TextBox2.Text) < 1)
+                    {
+                        MessageBox.Show("your password must have at least one Special characters ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        guna2TextBox2.Clear(); guna2TextBox2.Focus();
+
+                    }
+                    else
+                    {
+                        con.Open();
+                        string query2 = "INSERT INTO Login (UserName , Password) VALUES(@UserName,@Password) ";
+                        SqlCommand cmd2 = new SqlCommand(query2, con);
+                        cmd2.Parameters.AddWithValue("@UserName", guna2TextBox1.Text);
+                        cmd2.Parameters.AddWithValue("@Password", guna2TextBox2.Text);
+                        cmd2.ExecuteNonQuery();
+                        con.Close();
+                        guna2TextBox1.Clear(); guna2TextBox2.Clear(); guna2TextBox1.Focus();
+                        MessageBox.Show("user saved");
+                    }
                 }
 
             }
         }
 
-    
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            guna2TextBox1.Focus();
+        }
     }
 }
