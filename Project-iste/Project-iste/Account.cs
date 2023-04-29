@@ -25,6 +25,12 @@ namespace Project_iste
             InitializeComponent();
         }
 
+        public static bool check(string str)
+        {
+            return (String.IsNullOrEmpty(str) ||
+                str.Trim().Length == 0) ? true : false;
+        }
+
 
         private void guna2GradientButton1_Click(object sender, EventArgs e)
         {
@@ -83,16 +89,24 @@ namespace Project_iste
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            con.Open();
-            string query = "Delete from NoteWrite Where Title = '" + comboBox1.Text.ToString()+ "'";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.ExecuteNonQuery();
-            con.Close();
-            MessageBox.Show("Deleted Successfully please Refresh The Form To See Your Update!!!");
+            if(check(comboBox1.Text) == true)
+            {
+                MessageBox.Show("You can't Delete Nothing!!","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                con.Open();
+                string query = "Delete from NoteWrite Where Title = '" + comboBox1.Text.ToString() + "'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                MessageBox.Show("Deleted Successfully please Refresh The Form To See Your Update!!!");
 
-            this.Close();
-            Account account = new Account();
-            account.Show();
+                this.Close();
+                Account account = new Account();
+                account.Show();
+            }
+           
 
         }
 

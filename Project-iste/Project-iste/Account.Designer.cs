@@ -44,12 +44,17 @@
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.guna2DragControl2 = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.guna2GradientPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // guna2GradientButton1
             // 
+            this.guna2GradientButton1.BorderColor = System.Drawing.Color.Transparent;
             this.guna2GradientButton1.BorderRadius = 15;
+            this.guna2GradientButton1.BorderThickness = 1;
+            this.guna2GradientButton1.CheckedState.FillColor = System.Drawing.Color.WhiteSmoke;
+            this.guna2GradientButton1.CheckedState.FillColor2 = System.Drawing.Color.WhiteSmoke;
             this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -59,6 +64,11 @@
             this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(37)))), ((int)(((byte)(119)))));
             this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
+            this.guna2GradientButton1.HoverState.BorderColor = System.Drawing.Color.Red;
+            this.guna2GradientButton1.HoverState.CustomBorderColor = System.Drawing.Color.Red;
+            this.guna2GradientButton1.HoverState.FillColor = System.Drawing.Color.White;
+            this.guna2GradientButton1.HoverState.FillColor2 = System.Drawing.Color.White;
+            this.guna2GradientButton1.HoverState.ForeColor = System.Drawing.Color.Black;
             this.guna2GradientButton1.Image = ((System.Drawing.Image)(resources.GetObject("guna2GradientButton1.Image")));
             this.guna2GradientButton1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.guna2GradientButton1.ImageSize = new System.Drawing.Size(27, 27);
@@ -191,7 +201,9 @@
             // 
             // guna2Button2
             // 
-            this.guna2Button2.BorderRadius = 5;
+            this.guna2Button2.BorderColor = System.Drawing.Color.Transparent;
+            this.guna2Button2.BorderRadius = 7;
+            this.guna2Button2.BorderThickness = 1;
             this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
@@ -199,6 +211,10 @@
             this.guna2Button2.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(31)))), ((int)(((byte)(128)))));
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
+            this.guna2Button2.HoverState.BorderColor = System.Drawing.Color.Red;
+            this.guna2Button2.HoverState.CustomBorderColor = System.Drawing.Color.Red;
+            this.guna2Button2.HoverState.FillColor = System.Drawing.Color.White;
+            this.guna2Button2.HoverState.ForeColor = System.Drawing.Color.Black;
             this.guna2Button2.Location = new System.Drawing.Point(80, 454);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(102, 45);
@@ -239,6 +255,12 @@
             this.label4.Size = new System.Drawing.Size(289, 19);
             this.label4.TabIndex = 26;
             this.label4.Text = " Select The Title You Want To Delete :";
+            // 
+            // guna2DragControl2
+            // 
+            this.guna2DragControl2.DockIndicatorTransparencyValue = 0.6D;
+            this.guna2DragControl2.TargetControl = this.flowLayoutPanel1;
+            this.guna2DragControl2.UseTransparentDrag = true;
             // 
             // Account
             // 
@@ -283,5 +305,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private System.Windows.Forms.Label label4;
+        private Guna.UI2.WinForms.Guna2DragControl guna2DragControl2;
     }
 }
