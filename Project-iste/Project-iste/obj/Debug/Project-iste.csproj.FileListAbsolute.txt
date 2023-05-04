@@ -32,4 +32,3 @@ C:\Users\osama\source\repos\Usama-USKH\Project-iste\Project-iste\bin\Debug\Proje
 C:\Users\osama\source\repos\Usama-USKH\Project-iste\Project-iste\bin\Debug\Project-iste.pdb
 C:\Users\osama\source\repos\Usama-USKH\Project-iste\Project-iste\bin\Debug\Guna.UI2.dll
 C:\Users\osama\source\repos\Usama-USKH\Project-iste\Project-iste\obj\Debug\Project-iste.csproj.CopyComplete
-C:\Users\osama\source\repos\my_github\Usama-USKH\Project-iste\Project-iste\obj\Debug\Project-iste.csproj.SuggestedBindingRedirects.cache
