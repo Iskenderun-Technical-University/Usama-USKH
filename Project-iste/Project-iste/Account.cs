@@ -5,9 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Project_iste
 {
@@ -113,6 +115,7 @@ namespace Project_iste
         private void guna2Button3_Click(object sender, EventArgs e)
         {
             Application.Exit();
+         
         }
     }
 }

@@ -84,7 +84,7 @@ namespace Project_iste
             else
             {
                 con.Open();
-                string query2="select Title from NoteWrite Where Title = '"+guna2TextBox1.Text.ToString()+ "'";
+                string query2="select Title from NoteWrite Where Title = '"+guna2TextBox1.Text.ToString()+ "' And UserName = '"+ label1.Text.ToString()+"'";
                 SqlCommand cmd2 = new SqlCommand(query2, con);
                 SqlDataReader reader = cmd2.ExecuteReader();
                 if (reader.Read())
@@ -117,14 +117,45 @@ namespace Project_iste
             if(guna2TextBox1.Text == "")
             {
                 guna2TextBox1.Text = label5.Text;
+                con.Open();
+                string query3 = "update NoteWrite set  Title = @Title , Subject=@Subject Where Title = '" + label5.Text.ToString() + "'";
+                SqlCommand cmd3 = new SqlCommand(query3, con);
+                cmd3.Parameters.AddWithValue("@Title", guna2TextBox1.Text);
+                cmd3.Parameters.AddWithValue("@Subject", richTextBox1.Text);
+                cmd3.ExecuteNonQuery();
+                con.Close();
+                this.Close();
+                MessageBox.Show("Your Note Is Successfully ,Refresh Your Form");
             }
-            con.Open();
-            string query = "update NoteWrite set  Title = @Title , Subject=@Subject Where Title = '" + label5.Text.ToString() + "'";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@Title", guna2TextBox1.Text);
-            cmd.Parameters.AddWithValue("@Subject", richTextBox1.Text);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            else
+            {
+                con.Open();
+                string query = "select Title from NoteWrite Where Title = '" + guna2TextBox1.Text.ToString() + "' And UserName = '" + label1.Text.ToString() + "'";
+                SqlCommand cmd = new SqlCommand(query, con);
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    MessageBox.Show("Sorry,But An Title With This Name Already Exists", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                else
+                {
+                    con.Close();
+                    con.Open();
+                    string query2 = "update NoteWrite set  Title = @Title , Subject=@Subject Where Title = '" + label5.Text.ToString() + "'";
+                    SqlCommand cmd2 = new SqlCommand(query2, con);
+                    cmd2.Parameters.AddWithValue("@Title", guna2TextBox1.Text);
+                    cmd2.Parameters.AddWithValue("@Subject", richTextBox1.Text);
+                    cmd2.ExecuteNonQuery();
+                    con.Close();
+                    this.Close();
+                    MessageBox.Show("Your Note Is Successfully ,Refresh Your Form");
+                   
+                }
+
+                
+            }
+            
         }
     }
 }
