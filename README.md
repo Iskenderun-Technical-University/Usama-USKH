@@ -2,12 +2,12 @@
 
 
 ## Projenin Nedeni
-Not almam gerektiği ve yapmam gereken işler olduğu için hem benim ,
-hem de kullanmak isteyen kullanıcıların not almasını kolaylaştıracak bir uygulama yapmaya karar verdim.
+>Not almam gerektiği ve yapmam gereken işler olduğu için hem benim ,
+>hem de kullanmak isteyen kullanıcıların not almasını kolaylaştıracak bir uygulama yapmaya karar verdim.
 
 ## Projenin Özellikleri
-önemli notlar veya günlük notlar alıp yazmaktır,
-Hesabınıza kaydedilir ve istediğiniz zaman başvurabilir ve değiştirebilirsiniz.
+>önemli notlar veya günlük notlar alıp yazmaktır,
+Hesabınıza kaydedilir ve istediğiniz zaman Yeni Notlar ekleyebilirsiniz ve değiştirebilirsiniz.
 
 
 # Database-Diagram
@@ -20,6 +20,7 @@ Hesabınıza kaydedilir ve istediğiniz zaman başvurabilir ve değiştirebilirs
 
 ## Tools Used 
 * Guna Framework
+
 
 ## Languages
 * English
