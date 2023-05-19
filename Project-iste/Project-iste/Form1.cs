@@ -58,9 +58,9 @@ namespace Project_iste
                 if (reader.Read())
                 {
                     this.Hide();
-                    Account account = new Account();
-                    account.Show();
-                    account.label2.Text = guna2TextBox1.Text;
+                    Account.account.Show();
+                    //account.Show();
+                    Account.account.label2.Text = guna2TextBox1.Text;
                 }
                 else
                 {
@@ -176,8 +176,6 @@ namespace Project_iste
         {
             guna2TextBox1.Focus();
         }
-
-       
 
       
     }

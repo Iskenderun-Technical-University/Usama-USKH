@@ -66,6 +66,7 @@
             this.guna2ShadowPanel1.ShadowDepth = 200;
             this.guna2ShadowPanel1.Size = new System.Drawing.Size(252, 252);
             this.guna2ShadowPanel1.TabIndex = 1;
+            this.guna2ShadowPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2ShadowPanel1_Paint);
             // 
             // guna2Button1
             // 

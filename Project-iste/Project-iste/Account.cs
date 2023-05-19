@@ -15,11 +15,14 @@ namespace Project_iste
 {
     public partial class Account : Form
     {
+        public static Account account = new Account();
         Write_Note Write = new Write_Note();
         Form1 form1 = new Form1();
         
         DataTable dt = new DataTable();
         DataTable dt2 = new DataTable();
+        DataTable dt3 = new DataTable();
+
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\osama\source\repos\my_github\Usama-USKH\Project-iste\Project-iste\Database1.mdf;Integrated Security=True");
 
         public Account()
@@ -55,7 +58,7 @@ namespace Project_iste
             SqlCommand cmd2 = new SqlCommand(query2, con);
             SqlDataAdapter adb2 = new SqlDataAdapter(cmd2);
             adb2.Fill(dt2);
-            foreach (DataRow dr in dt.Rows)
+            foreach (DataRow dr in dt2.Rows)
             {
                 comboBox1.Items.Add(dr["Title"].ToString());
             }
@@ -75,19 +78,23 @@ namespace Project_iste
 
         private void guna2GradientButton2_Click(object sender, EventArgs e)
         {
-
-            this.Close();
-            Account account = new Account();
-            account.Show();
+            flowLayoutPanel1.Controls.Clear();
+            comboBox1.Items.Clear();
+            con.Open();
+            string query2 = "select Title from NoteWrite Where UserName = '" + label2.Text.ToString() + "'";
+            SqlCommand cmd = new SqlCommand(query2, con);
+            SqlDataAdapter adb = new SqlDataAdapter(cmd);
+            adb.Fill(dt3);
+            foreach (DataRow dr in dt3.Rows)
+            {
+                comboBox1.Items.Add(dr["Title"].ToString());
+            }
+            con.Close();
+            dt3.Clear();
+            
 
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-           /* Write_Note note2 = new Write_Note();
-            note2.label1.Text = label2.Text;
-            note2.ShowDialog();*/
-        }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
@@ -105,11 +112,10 @@ namespace Project_iste
                 MessageBox.Show("Deleted Successfully please Refresh The Form To See Your Update!!!");
 
                 this.Close();
-                Account account = new Account();
+                Account account= new Account();
                 account.Show();
             }
-           
-
+         
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)
@@ -117,5 +123,8 @@ namespace Project_iste
             Application.Exit();
          
         }
+
+         
+
     }
 }

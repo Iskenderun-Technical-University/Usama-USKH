@@ -14,6 +14,7 @@ namespace Project_iste
 {
     public partial class Write_Note : Form
     {
+        public static NotePanel note;
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\osama\source\repos\my_github\Usama-USKH\Project-iste\Project-iste\Database1.mdf;Integrated Security=True");
         DataTable dt = new DataTable();
         DataTable dt2 = new DataTable();
@@ -103,7 +104,7 @@ namespace Project_iste
                     cmd3.Parameters.AddWithValue("@Title", guna2TextBox1.Text);
                     cmd3.Parameters.AddWithValue("@Subject", richTextBox1.Text);
                     cmd3.ExecuteNonQuery();
-                    MessageBox.Show("Your Note Saved in your sql table");
+                    MessageBox.Show("Your Note Saved in your sql table", "Information", MessageBoxButtons.OK,MessageBoxIcon.Information);
                     guna2TextBox1.Clear(); richTextBox1.Clear();
                     
                 }
@@ -114,6 +115,7 @@ namespace Project_iste
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            
             if(guna2TextBox1.Text == "")
             {
                 guna2TextBox1.Text = label5.Text;
@@ -125,7 +127,7 @@ namespace Project_iste
                 cmd3.ExecuteNonQuery();
                 con.Close();
                 this.Close();
-                MessageBox.Show("Your Note Is Successfully ,Refresh Your Form");
+                MessageBox.Show("Your Note Is Successfully Updated ,Refresh Your Form");
             }
             else
             {
@@ -141,6 +143,8 @@ namespace Project_iste
                 else
                 {
                     con.Close();
+                    note.label1.Text = guna2TextBox1.Text;
+                    note.richTextBox1.Text = richTextBox1.Text; 
                     con.Open();
                     string query2 = "update NoteWrite set  Title = @Title , Subject=@Subject Where Title = '" + label5.Text.ToString() + "'";
                     SqlCommand cmd2 = new SqlCommand(query2, con);
