@@ -64,7 +64,7 @@
             this.guna2ShadowPanel1.Name = "guna2ShadowPanel1";
             this.guna2ShadowPanel1.ShadowColor = System.Drawing.Color.Black;
             this.guna2ShadowPanel1.ShadowDepth = 200;
-            this.guna2ShadowPanel1.Size = new System.Drawing.Size(252, 252);
+            this.guna2ShadowPanel1.Size = new System.Drawing.Size(259, 260);
             this.guna2ShadowPanel1.TabIndex = 1;
             this.guna2ShadowPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.guna2ShadowPanel1_Paint);
             // 
@@ -84,11 +84,11 @@
             this.guna2Button1.HoverState.CustomBorderColor = System.Drawing.Color.Red;
             this.guna2Button1.HoverState.FillColor = System.Drawing.Color.White;
             this.guna2Button1.HoverState.ForeColor = System.Drawing.Color.Black;
-            this.guna2Button1.Location = new System.Drawing.Point(132, 203);
+            this.guna2Button1.Location = new System.Drawing.Point(156, 209);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(95, 35);
+            this.guna2Button1.Size = new System.Drawing.Size(84, 35);
             this.guna2Button1.TabIndex = 15;
-            this.guna2Button1.Text = "Write";
+            this.guna2Button1.Text = "Edit";
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // richTextBox1
@@ -113,7 +113,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.guna2ShadowPanel1);
             this.Name = "NotePanel";
-            this.Size = new System.Drawing.Size(252, 252);
+            this.Size = new System.Drawing.Size(259, 260);
             this.guna2ShadowPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

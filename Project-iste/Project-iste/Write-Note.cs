@@ -31,9 +31,7 @@ namespace Project_iste
 
         private void guna2ControlBox1_Click(object sender, EventArgs e)
         {
-
             this.Close();
-            
         }
 
         private void Write_Note_Load(object sender, EventArgs e)

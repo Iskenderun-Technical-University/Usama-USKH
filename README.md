@@ -2,13 +2,13 @@
 # Note Book App
 
 
-## Projenin Nedeni
->Not almam gerektiği ve yapmam gereken işler olduğu için hem benim ,
->hem de kullanmak isteyen kullanıcıların not almasını kolaylaştıracak bir uygulama yapmaya karar verdim.
+## About
+>Since I have to take notes and I have work to do,
+>I decided to make an application that will make it easier for users who want to use it as well as take notes.
 
-## Projenin Özellikleri
->önemli notlar veya günlük notlar alıp yazmaktır,
-Hesabınıza kaydedilir ve istediğiniz zaman Yeni Notlar ekleyebilirsiniz ve değiştirebilirsiniz.
+## Features
+>taking and writing important notes or daily notes,
+It is saved in your account and you can add and change New Notes at any time.
 
 
 # Database-Diagram
